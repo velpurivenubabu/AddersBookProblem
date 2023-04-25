@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AddersBookProblem
 {
-    internal class PersonDetails
+    public class PersonDetails
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
@@ -23,7 +23,7 @@ namespace AddersBookProblem
             
         {
             count++;
-            PersonDetails contacts=new PersonDetails() {firstName=firstName };
+            PersonDetails contacts=new PersonDetails() {firstName=firstName, lastName = lastName, address = address, city=city, state= state, zip= zip, phoneNumber= phoneNumber, email= email };
             person.Add(contacts);
             if (count == num)
             {
@@ -32,7 +32,7 @@ namespace AddersBookProblem
                     Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
                 }
             }
-            //
+            
         }
 
         
