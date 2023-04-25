@@ -28,8 +28,9 @@
                 string email = Console.ReadLine();
 
                 data.GetPersonDetails(number,firstName,lastName,address,city,state,zip,phoneNumber,email);
-
+                
             }
+            data.DisplayDetails();
 
         }
     }

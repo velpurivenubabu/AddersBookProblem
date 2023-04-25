@@ -18,19 +18,20 @@ namespace AddersBookProblem
         public long phoneNumber { get; set; }
         public string email { get; internal set; }
         List<PersonDetails> person=new List<PersonDetails>();
-        int count = 0;
+        //int count = 0;
         public  void GetPersonDetails(int num, string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
             
         {
-            count++;
+            //count++;
             PersonDetails contacts=new PersonDetails() {firstName=firstName, lastName = lastName, address = address, city=city, state= state, zip= zip, phoneNumber= phoneNumber, email= email };
             person.Add(contacts);
-            if (count == num)
+            
+        }
+        public void DisplayDetails()
+        {
+            foreach (PersonDetails contact in person)//Here i am displaying the stored details
             {
-                foreach (PersonDetails contact in person)//Here i am displaying the stored details
-                {
-                    Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
-                }
+               Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
             }
             
         }
