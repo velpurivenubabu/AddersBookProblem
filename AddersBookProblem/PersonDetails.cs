@@ -27,7 +27,7 @@ namespace AddersBookProblem
             person.Add(contacts);
             if (count == num)
             {
-                foreach (PersonDetails contact in person)
+                foreach (PersonDetails contact in person)//Here i am displaying the stored details
                 {
                     Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
                 }
