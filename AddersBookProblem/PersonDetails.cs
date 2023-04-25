@@ -14,25 +14,38 @@ namespace AddersBookProblem
         public string address { get; set; }
         public string city { get; set; }
         public string state { get; set; }
-        public int   zip { get; set; }
+        public int zip { get; set; }
         public long phoneNumber { get; set; }
         public string email { get; internal set; }
-        public PersonDetails()
+        List<PersonDetails> person=new List<PersonDetails>();
+        int count = 0;
+        public  void GetPersonDetails(int num, string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
+            
         {
-            firstName = "Venubabu";
-            lastName = "Velpuri";
-            address = "P.Suravaram Village,Agiripalli Mandal";
-            city = "Vijayawada";
-            state = "Andrapradesh";
-            zip = 521109;
-            phoneNumber = 8919802540;
-            email = "venu@123";
+            count++;
+            PersonDetails contacts=new PersonDetails() {firstName=firstName };
+            person.Add(contacts);
+            if (count == num)
+            {
+                foreach (PersonDetails contact in person)
+                {
+                    Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
+                }
+            }
+            //
         }
-        public string GetPersonDetails()
-        {
-            return ("Firstname: "+firstName+ " Lastname: "+ lastName+" Adders: "+ address+ " city: "+city+" State: "+ state + " Zip: " +zip+ " Phonenumber: "+ phoneNumber+" Email: " + email);
-        }
+
         
+
     }
-   
+
 }
+
+
+
+
+
+
+
+
+
