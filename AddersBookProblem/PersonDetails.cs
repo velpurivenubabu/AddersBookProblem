@@ -17,31 +17,27 @@ namespace AddersBookProblem
         public int zip { get; set; }
         public long phoneNumber { get; set; }
         public string email { get; internal set; }
-        List<PersonDetails> person=new List<PersonDetails>();
+        public List<PersonDetails> person = new List<PersonDetails>();
         //int count = 0;
-        public  void GetPersonDetails(int num, string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
-            
+        public void GetPersonDetails(int num, string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string email)
+
         {
             //count++;
-            PersonDetails contacts=new PersonDetails() {firstName=firstName, lastName = lastName, address = address, city=city, state= state, zip= zip, phoneNumber= phoneNumber, email= email };
+            PersonDetails contacts = new PersonDetails() { firstName = firstName, lastName = lastName, address = address, city = city, state = state, zip = zip, phoneNumber = phoneNumber, email = email };
             person.Add(contacts);
-            
+
         }
-<<<<<<< HEAD
         public void DisplayDetails()//Before updating
-=======
-        public void DisplayDetails()
->>>>>>> 632d6cc29aa07d49181a70c28ed266aa79455e41
+
         {
             foreach (PersonDetails contact in person)//Here i am displaying the stored details
             {
-               Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
-<<<<<<< HEAD
+                Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
+
             }
-            
+
         }
-         
-        public static void UpdatingExistingContacts(List<PersonDetails> list)//Updating Existing Contacts
+        public  void UpdatingExistingContacts(List<PersonDetails> list)//Updating Existing Contacts
         {
             Console.WriteLine("Please Enter Witch Person Details You Want Update");
             string name = Console.ReadLine();
@@ -87,22 +83,16 @@ namespace AddersBookProblem
                             Console.WriteLine("Please Enter Email");
                             contact.email = Console.ReadLine();
                             break;
-                    }   
+                    }
 
                 }
             }
 
             UpdatingExistingContacts(list);//Here I am displaying Contacts After Updation 
-=======
-            }
-            
->>>>>>> 632d6cc29aa07d49181a70c28ed266aa79455e41
+
         }
-
-        
-
+  
     }
-
 }
 
 

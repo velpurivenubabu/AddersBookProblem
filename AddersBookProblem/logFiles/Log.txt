@@ -1,0 +1,2 @@
+﻿2023-04-26 10:05:41.8220 INFO Wlecom to Nlog
+2023-04-26 10:16:14.0193 INFO Wlecom to Nlog
