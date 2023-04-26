@@ -27,11 +27,16 @@ namespace AddersBookProblem
             person.Add(contacts);
             
         }
+<<<<<<< HEAD
         public void DisplayDetails()//Before updating
+=======
+        public void DisplayDetails()
+>>>>>>> 632d6cc29aa07d49181a70c28ed266aa79455e41
         {
             foreach (PersonDetails contact in person)//Here i am displaying the stored details
             {
                Console.WriteLine("Firstname: " + contact.firstName + " Lastname: " + contact.lastName + " Adders: " + contact.address + " city: " + contact.city + " State: " + contact.state + " Zip: " + contact.zip + " Phonenumber: " + contact.phoneNumber + " Email: " + contact.email);
+<<<<<<< HEAD
             }
             
         }
@@ -88,6 +93,10 @@ namespace AddersBookProblem
             }
 
             UpdatingExistingContacts(list);//Here I am displaying Contacts After Updation 
+=======
+            }
+            
+>>>>>>> 632d6cc29aa07d49181a70c28ed266aa79455e41
         }
 
         
