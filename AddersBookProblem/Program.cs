@@ -39,7 +39,7 @@ namespace AddersBookProblem
             }
             data.DisplayDetails();
             data.UpdatingExistingContacts(data.person);
-            data.DisplayDetails();
+            data.DeletingExistingContacts(data.person);
 
         }
     }

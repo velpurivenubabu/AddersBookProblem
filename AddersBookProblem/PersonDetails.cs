@@ -37,7 +37,7 @@ namespace AddersBookProblem
             }
 
         }
-        public  void UpdatingExistingContacts(List<PersonDetails> list)//Updating Existing Contacts
+        public void UpdatingExistingContacts(List<PersonDetails> list)//Updating Existing Contacts
         {
             Console.WriteLine("Please Enter Witch Person Details You Want Update");
             string name = Console.ReadLine();
@@ -83,17 +83,43 @@ namespace AddersBookProblem
                             Console.WriteLine("Please Enter Email");
                             contact.email = Console.ReadLine();
                             break;
-                    }
 
+
+                    }
+                    DisplayDetails();
+                }
+                else
+                {
+                    Console.WriteLine("Contact details of person not existed");
                 }
             }
 
-            UpdatingExistingContacts(list);//Here I am displaying Contacts After Updation 
+
 
         }
-  
-    }
-}
+        public void DeletingExistingContacts(List<PersonDetails> list)
+        {
+            Console.WriteLine("Please Enter The Person Name Witch you Want to remove");
+            string name1 = Console.ReadLine();
+            bool present = false;
+            foreach (PersonDetails contact in list) {
+                if (contact.firstName == name1)
+                {
+                    present = true;
+                    list.Remove(contact);
+                    DisplayDetails();
+                    break;
+
+                }
+            }
+            if (!present)
+            {
+                Console.WriteLine("Person not exit");
+            }
+        }
+
+    }   
+ }
 
 
 
