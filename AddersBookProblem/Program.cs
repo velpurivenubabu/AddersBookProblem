@@ -1,10 +1,17 @@
-﻿namespace AddersBookProblem
+﻿using Microsoft.Extensions.Logging;
+using NLog;
+using System;
+using System.Collections.Generic;
+
+namespace AddersBookProblem
 {
     internal class Program
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
-            PersonDetails data = new PersonDetails();
+            logger.Info("Wlecom to Nlog");
+        PersonDetails data = new PersonDetails();
             Console.WriteLine("Welcome to Adders book Problem");
             Console.WriteLine("Enter Number of persons You Want to Add");
             int number=Convert.ToInt32(Console.ReadLine());
@@ -30,6 +37,8 @@
                 data.GetPersonDetails(number,firstName,lastName,address,city,state,zip,phoneNumber,email);
                 
             }
+            data.DisplayDetails();
+            data.UpdatingExistingContacts(data.person);
             data.DisplayDetails();
 
         }
