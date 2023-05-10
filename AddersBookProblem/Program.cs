@@ -15,8 +15,8 @@ namespace AddersBookProblem
             Console.WriteLine("Welcome to Adders book Problem");
             Console.WriteLine("Enter Number of persons You Want to Add");
             int number=Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < number; i++)
-            {
+            for (int person = 0; person < number; person++)//UC5 Adding Multiple Contacts To Adders Book
+            {//This loop Allows User To Enter the Multiple details
                 Console.WriteLine("Enter FirstName");
                 string firstName=Console.ReadLine();
                 Console.WriteLine("Enter LastName");
