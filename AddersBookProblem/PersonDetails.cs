@@ -117,9 +117,63 @@ namespace AddersBookProblem
                 Console.WriteLine("Person not exit");
             }
         }
+        //UC6 Adding Multiple Adders to Adders Book
+        
 
-    }   
- }
+            List<PersonDetails> AddressBookList = new List<PersonDetails>();
+
+        //Dictionary<string , ContactOptions> AddressBookList = new Dictionary<string, ContactOptions>();
+        //Dictionary<string, ContactOptions> AddressBookList;
+
+
+        public void AddingContact
+            (
+            string firstName,
+            string lastName,
+            string address,
+            string city,
+            string state,
+            int zip,
+            long phoneNumber,
+            string email
+            )
+        {
+
+            AddressBookList.Add
+                (new PersonDetails()
+                {
+                    firstName = firstName,
+                    lastName = lastName,
+                    address = address,
+                    city = city,
+                    state = state,
+                    zip = zip,
+                    phoneNumber = phoneNumber,
+                    email = email
+                }
+            );
+            Console.WriteLine($"{lastName} {firstName} contact is added______");
+
+        }
+        public void DisplayMultipleAdders()
+        {
+            foreach (PersonDetails contact in AddressBookList)
+            {
+                Console.WriteLine(contact.firstName);
+                Console.WriteLine(contact.lastName);
+                Console.WriteLine(contact.address);
+                Console.WriteLine(contact.city);
+                Console.WriteLine(contact.state);
+                Console.WriteLine(contact.zip);
+                Console.WriteLine(contact.phoneNumber);
+                Console.WriteLine(contact.email);
+            }
+
+        }
+    }
+    
+
+}
 
 
 

@@ -2,6 +2,7 @@
 using NLog;
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 namespace AddersBookProblem
 {
@@ -35,11 +36,12 @@ namespace AddersBookProblem
                 string email = Console.ReadLine();
 
                 data.GetPersonDetails(number,firstName,lastName,address,city,state,zip,phoneNumber,email);
-                
+                data.AddingContact(firstName, lastName,address, city,state, zip,phoneNumber,email);
             }
             data.DisplayDetails();
             data.UpdatingExistingContacts(data.person);
             data.DeletingExistingContacts(data.person);
+            data.DisplayMultipleAdders();
 
         }
     }
