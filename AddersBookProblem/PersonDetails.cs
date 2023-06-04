@@ -39,7 +39,6 @@ namespace AddressBookSystem
                     Email = Email
                 }
             );
-            Console.WriteLine($"{Name}'s contact is added______");
 
         }
 
@@ -80,13 +79,19 @@ namespace AddressBookSystem
                 }
             }
         }
+
+
+
+        public void SearchingInCity(string City)
+        {
+            Console.Write($"{City}: ");
+            foreach (var contact in AddressBookList)
+            {
+                if (contact.City.Contains(City))
+                {
+                    Console.Write($"{contact.Name}, ");
+                }
+            }
+        }
     }
 }
-
-
-
-
-
-
-
-

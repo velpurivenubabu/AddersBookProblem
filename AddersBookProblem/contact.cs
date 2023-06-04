@@ -8,16 +8,16 @@ namespace AddressBookSystem
 {
     internal class ContactOptions
     {
-        Dictionary<string, ManipulateContact> MultiAddressBook = new Dictionary<string, ManipulateContact>();
+        public static Dictionary<string, ManipulateContact> MultiAddressBook = new Dictionary<string, ManipulateContact>();
 
 
-        public static ManipulateContact manipulate = new ManipulateContact();
+        ManipulateContact manipulate = new ManipulateContact();
         public void AddContact(string BookName)
         {
             Console.Write($"how many contacts do you want to add: ");
             int num = Convert.ToInt32(Console.ReadLine());
 
-
+            ManipulateContact manipulateAppend = new ManipulateContact();
             for (int i = 1; i <= num; i++)
             {
                 bool Duplicate = false;
@@ -36,8 +36,7 @@ namespace AddressBookSystem
                 Console.Write("enter email id: ");
                 string Email = Console.ReadLine();
                 ContactDetails detail = new ContactDetails();
-                MultiAddressBook.Add(BookName + i, manipulate);
-
+                //MultiAddressBook.Add(BookName + i, manipulate);
                 foreach (var contact in manipulate.AddressBookList)
                 {
                     if (contact.Name.Contains(Name))
@@ -56,6 +55,16 @@ namespace AddressBookSystem
                       detail.PhoneNumber = PhoneNumber,
                       detail.Email = Email
                       );
+
+                    manipulateAppend.AddingContact(
+                      detail.Name = Name,
+                      detail.Address = Address,
+                      detail.City = City,
+                      detail.State = State,
+                      detail.ZipCode = ZipCode,
+                      detail.PhoneNumber = PhoneNumber,
+                      detail.Email = Email
+                      );
                 }
                 else
                 {
@@ -63,6 +72,7 @@ namespace AddressBookSystem
                     num++;
                 }
             }
+            MultiAddressBook.Add(BookName, manipulateAppend);
         }
 
         public void EditContact()
@@ -77,5 +87,13 @@ namespace AddressBookSystem
             string Name = Console.ReadLine();
             manipulate.DeletingContact(Name);
         }
+
+        public void SearchInCity()
+        {
+            Console.Write("enter city name you want search in: ");
+            string City = Console.ReadLine();
+            manipulate.SearchingInCity(City);
+        }
     }
 }
+
