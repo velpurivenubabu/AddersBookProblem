@@ -9,7 +9,6 @@ namespace AddressBookSystem
     internal class ContactOptions
     {
         public static Dictionary<string, ManipulateContact> MultiAddressBook = new Dictionary<string, ManipulateContact>();
-        public List<ContactDetails> CityBookList = new List<ContactDetails>();
 
 
         ManipulateContact manipulate = new ManipulateContact();
@@ -37,7 +36,6 @@ namespace AddressBookSystem
                 Console.Write("enter email id: ");
                 string Email = Console.ReadLine();
                 ContactDetails detail = new ContactDetails();
-                //MultiAddressBook.Add(BookName + i, manipulate);
                 foreach (var contact in manipulate.AddressBookList)
                 {
                     if (contact.Name.Contains(Name))
@@ -45,6 +43,7 @@ namespace AddressBookSystem
                         Duplicate = true;
                     }
                 }
+
                 if (!Duplicate)
                 {
                     manipulate.AddingContact(
@@ -94,20 +93,9 @@ namespace AddressBookSystem
         {
             Console.Write("enter city/state name you want search in: ");
             string City = Console.ReadLine();
-            Console.Write($"Adress {City}: ");
-            foreach (var kvp in MultiAddressBook)
-            {
-                foreach (var contact in kvp.Value.AddressBookList)
-                {
-                    CityBookList = manipulate.AddressBookList.FindAll(x => contact.City.Contains(City) || contact.State.Contains(City));
-                }
-            }
-            foreach (var contact in CityBookList)
-            {
-                Console.Write($"{contact.Name}, ");
-            }
-            Console.Write($"\n ");
+            manipulate.SearchingInState(City);
         }
     }
 }
+
 

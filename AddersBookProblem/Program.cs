@@ -17,9 +17,8 @@ namespace AddressBookSystem
                 string BookName = Console.ReadLine();
 
                 contactOptions.AddContact(BookName);
-                //contactOptions.EditContact();
-                //contactOptions.DeleteContact();
-                //contactOptions.SearchInCity();
+                contactOptions.EditContact();
+                contactOptions.DeleteContact();
                 contactOptions.SearchInState();
 
                 Console.Write("add another address book? (Y/N): ");
