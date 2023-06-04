@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace AddressBookSystem
 {
@@ -10,7 +11,6 @@ namespace AddressBookSystem
     {
 
         public List<ContactDetails> AddressBookList = new List<ContactDetails>();
-
         //Dictionary<string , ContactOptions> AddressBookList = new Dictionary<string, ContactOptions>();
         //Dictionary<string, ContactOptions> AddressBookList;
 
@@ -37,9 +37,7 @@ namespace AddressBookSystem
                     ZipCode = ZipCode,
                     PhoneNumber = PhoneNumber,
                     Email = Email
-                }
-            );
-
+                });
         }
 
 
@@ -76,20 +74,6 @@ namespace AddressBookSystem
                     AddressBookList.Remove(contact);
                     Console.WriteLine($"{Name}'s Contact is deleted______");
                     break;
-                }
-            }
-        }
-
-
-
-        public void SearchingInCity(string City)
-        {
-            Console.Write($"{City}: ");
-            foreach (var contact in AddressBookList)
-            {
-                if (contact.City.Contains(City))
-                {
-                    Console.Write($"{contact.Name}, ");
                 }
             }
         }
