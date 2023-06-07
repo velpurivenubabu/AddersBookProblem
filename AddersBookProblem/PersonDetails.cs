@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,14 +78,11 @@ namespace AddressBookSystem
             }
         }
 
-
-
-
         public void SearchingInState(String City)
         {
             List<ContactDetails> CityBookList = new List<ContactDetails>();
             CityBookList = AddressBookList.FindAll(x => x.City.Contains(City) || x.State.Contains(City));
-
+            Console.Write($"{City} city:  ");
             foreach (var contact in CityBookList)
             {
                 Console.Write($"{contact.Name}, ");
@@ -94,26 +91,65 @@ namespace AddressBookSystem
             Console.Write($"\ntotal people: {Count}\n ");
         }
 
-
-
-
-        public void SortingAddressBook()
+        public void SortingAddressBook(int Option)
         {
-            IComparer<ContactDetails> comparer = new SortingClass();
-            AddressBookList.Sort(comparer);
+            // IComparer<ContactDetails> comparer = new SortingClass();
+            SortingClass sortingClass = new SortingClass();
+
+            switch (Option)
+            {
+                case 1:
+                    sortingClass.Detail = SortingClass.SortingType.NAME;
+                    break;
+                case 2:
+                    sortingClass.Detail = SortingClass.SortingType.CITY;
+                    break;
+                case 3:
+                    sortingClass.Detail = SortingClass.SortingType.STATE;
+                    break;
+                case 4:
+                    sortingClass.Detail = SortingClass.SortingType.ZIP;
+                    break;
+            }
+            AddressBookList.Sort(sortingClass);
+
+            foreach (var contact in AddressBookList)
+            {
+                Console.WriteLine($"name: {contact.Name}  city: {contact.City}  state: {contact.State}  zip: {contact.ZipCode}");
+            }
         }
     }
 
-
-
-
-
     public class SortingClass : IComparer<ContactDetails>
     {
+
+        public enum SortingType
+        {
+            NAME, CITY, STATE, ZIP
+        }
+        public SortingType Detail;
         public int Compare(ContactDetails x, ContactDetails y)
         {
-            int NewName = x.Name.CompareTo(y.Name);
-            return NewName;
+
+            switch (Detail)
+            {
+                case SortingType.NAME:
+                    return x.Name.CompareTo(y.Name);
+                    break;
+                case SortingType.CITY:
+                    return x.City.CompareTo(y.City);
+                    break;
+                case SortingType.STATE:
+                    return x.State.CompareTo(y.State);
+                    break;
+                case SortingType.ZIP:
+                    return x.ZipCode.CompareTo(y.ZipCode);
+                    break;
+                default:
+                    break;
+
+            }
+            return x.Name.CompareTo(y.Name);
         }
-    
+    }
 }
